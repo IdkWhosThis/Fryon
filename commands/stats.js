@@ -12,7 +12,7 @@ const PREFIX = "f!";
 var args = message.content.substring(PREFIX.length).split(" ");
 let uicon = message.author.avatarURL;
 
-let botversion = "0.1.9
+let botversion = "0.2.0"
 
 let cpuLol;
   cpuStat.usagePercent(function(err, percent, seconds) {
