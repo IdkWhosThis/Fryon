@@ -1,5 +1,6 @@
 module.exports.run = async (bot, message, args) => {
 const Discord = require("discord.js");
+const config = require('../config.json');
 const fs = require('fs');
 const moment = require('moment');
 const { version } = require("discord.js");
@@ -11,8 +12,11 @@ const PREFIX = "f!";
 
 var args = message.content.substring(PREFIX.length).split(" ");
 let uicon = message.author.avatarURL;
+let user1 = message.mentions.users.first() || message.author;
+//let member = message.mentions.users.first() || bot.users.get(args[0]);
+let member = message.author;
 
-let botversion = "0.2.0"
+//const game = bot.user.presence.game || {};
 
 let cpuLol;
   cpuStat.usagePercent(function(err, percent, seconds) {
@@ -31,7 +35,7 @@ let cpuLol;
           .addField("• Serverů", `${bot.guilds.size.toLocaleString()}`, true)
           .addField("• Discord.js", `v${version}`, true)
           .addField("• Node.js", `${process.version}`, true)
-          .addField("• Verze bota", `${botversion}`, true)
+          .addField("• Verze bota", `${config.botversion}`, true)
           .addField("• Platforma", `\`\`${os.platform()}\`\``, true)
           .addField("• CPU", `\`\`\`md\n${os.cpus().map(i => `${i.model}`)[0]}\`\`\``)
           .addField("• Využití CPU", `\`${percent.toFixed(2)}%\``, true)
