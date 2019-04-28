@@ -46,7 +46,6 @@ let cpuLol;
       console.log("Fryon | "+ message.author.username + " provedl příkaz f!stats na serveru: " + message.guild.name)
 });
 
-
 }
 module.exports.config = {
   command: "stats",
